@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.49.0/min/vs/editor/editor.main.min.css"
+    integrity="sha512-FgjyLjgG8SiK5sz5dGbPzZ5n89BN3B8XHVwsfWsTk1Hw1tMm8OEBpPrdN/gREOm+c4xsZ2w1nUUEDzL7V3W/Mg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="w-screen h-screen flex">
+    <div id="container" class="h-screen max-h-screen w-full max-w-[65%]"></div>
+    <div class="w-full bg-slate-700 p-4 relative" id="output_container">
+      <div class="absolute top-1 left-8 flex items-center space-x-3">
+        <button id="submitBtn"
+          class="border-2 bg-green-400 disabled:bg-green-700 transition duration-100 hover:scale-2 font-medium text-black px-3 rounded-full">Submit
+          (☞⌐▀͡
+          ͜ʖ͡▀)☞</button>
+        <div class="max-md:hidden p-3 bg-blue-400 rounded-full"></div>
+        <div class="max-md:hidden p-2 mt-0.5 bg-gray-400 rounded-full"></div>
+        <div class="max-md:hidden p-1.5 mb-1 bg-yellow-300 rounded-full"></div>
+        <div class="max-md:hidden w-2 h-2 mb-0.5 bg-red-600 rounded-full"></div>
+        <p class="bg-white text-black px-2 rounded-full transition duration-300 hover:-translate-y-10">Output</p>
+      </div>
+      <div class="border rounded-2xl h-full p-3 pt-5 overflow-y-scroll">
+        <p class="text-white" id="output"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.49.0/min/vs/loader.min.js"
+    integrity="sha512-ZG31AN9z/CQD1YDDAK4RUAvogwbJHv6bHrumrnMLzdCrVu4HeAqrUX7Jsal/cbUwXGfaMUNmQU04tQ8XXl5Znw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
