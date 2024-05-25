@@ -147,17 +147,53 @@
       monaco.editor.setTheme('default')
       var editor = monaco.editor.create(document.getElementById('container'), {
         value: `<main>
-    <data value="1"></data>      <!-- push 1 onto the stack -->
-    <output id="loop"></output>  <!-- print the top of the stack -->
-    <data value="1"></data>      <!-- push 1 onto the stack -->
-    <dd></dd>                    <!-- add 1 -->
-    <dt></dt>                    <!-- dup new value -->
-    <data value="11"></data>     <!-- push 11 to compare -->
-    <small></small>                  <!-- test new value is smaller than 11 -->
-    <i>                          <!-- if bigger than zero pushed true -->
-        <a href="#loop"></a>     <!-- then jump back to the loop -->
+    <data value="7"></data>      <!-- push n number of fibonacci --> 
+    <a href="javascript:fib()"></a>
+    
+    <output></output>  <!-- print the fibonacci output -->
+</main>
+
+<dfn id="fib">
+    <var title="num"></var>            <!-- save the arg in a variable num -->
+
+    <cite>num</cite>                   <!-- load num -->
+    <data value="1"></data>            <!-- push 1 -->
+    <small></small>                    <!-- test if the arg is smaller -->
+    <i>                                <!-- if it is -->
+        <data value="0"></data>        <!-- push 0 -->
+        <rt></rt>                      <!-- return -->
     </i>
-</main>`,
+
+    <cite>num</cite>                   <!-- load num -->
+    <data value="1"></data>            <!-- push 1 -->
+    <em></em>                          <!-- test if equal -->
+    <i>                                <!-- if it is -->
+        <data value="1"></data>        <!-- push 1 -->
+        <rt></rt>                      <!-- return -->
+    </i>
+
+    <cite>num</cite>                   <!-- load num -->
+    <data value="2"></data>            <!-- push 2 -->
+    <em></em>                          <!-- test if equal -->
+    <i>                                <!-- if it is -->
+        <data value="1"></data>        <!-- push 1 -->
+        <rt></rt>                      <!-- return -->
+    </i>
+
+    <a href="javascript:fib()">        <!-- recursively invoke fib() on arg - 1 -->
+        <cite>num</cite>
+        <data value="1"></data>
+        <sub></sub>
+    </a>
+
+    <a href="javascript:fib()">        <!-- recursively invoke fib() on arg - 2 -->
+        <cite>num</cite>
+        <data value="2"></data>
+        <sub></sub>
+    </a>
+
+    <dd></dd>                           <!-- add the results and return -->
+</dfn>`,
         language: 'html',
         base: 'vs-dark',
         automaticLayout: true,
