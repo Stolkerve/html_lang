@@ -172,7 +172,7 @@
         submitBtn.textContent = "(?_?)"
         outputBox.textContent = "..."
 
-        fetch("http://127.0.0.1:8080/exec_html_the_programming_language", {
+        fetch("https://html-lang.onrender.com/exec_html_the_programming_language", {
           method: "POST",
           body: editor.getValue()
         }).then((resp) => {
