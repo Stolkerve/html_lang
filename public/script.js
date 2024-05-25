@@ -213,7 +213,6 @@
           body: editor.getValue()
         }).then((resp) => {
           resp.text().then((text) => {
-            console.log(text)
             outputBox.innerText = text
             submitBtn.disabled = false
             submitBtn.textContent = "Submit (☞⌐▀͡ ͜ʖ͡▀)☞"
@@ -223,7 +222,6 @@
             outputBox.textContent = ""
           })
         }).catch((resp) => {
-          console.log(resp)
           submitBtn.disabled = false
           submitBtn.textContent = "Submit (☞⌐▀͡ ͜ʖ͡▀)☞"
           outputBox.textContent = ""
