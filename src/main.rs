@@ -142,7 +142,7 @@ pub fn html_exec_loop(
             if let Some(next_node) = node.next_sibling() {
                 *cursor_node = Some(next_node.id());
             } else {
-                return Ok(());
+                *cursor_node = None;
             }
 
             exec_html_instructions(
