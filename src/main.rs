@@ -218,7 +218,32 @@ pub fn exec_html_instructions(
                         stack.push_front(HtmlValueType::Array(arr));
                     }
                 }
-
+                "address" => {
+                     if let Some(index) = stack.pop_front() {
+                         if let HtmlValueType::Int(index) = index {
+                            if index < 0 {
+                                return Err("".into())
+                            }
+                            if let Some(arr) = stack.pop_front() {
+                                if let HtmlValueType::Array(arr) = arr {
+                                    if let Some(v) = arr.get(index as usize) {
+                                        stack.push_front(v.clone());
+                                    } else {
+                                        return Err(format!("outbounds index, index at {} of {}", index, arr.len()))
+                                    }
+                                } else {
+                                     return Err(format!("Invalid stack value. Expected array, got {}", arr.to_string()))
+                                }
+                            } else {
+                                 return Err("Expected array value in the stack".into())
+                            }
+                         } else {
+                             return Err(format!("Invalid stack value. Expected integer, got {}", index.to_string()))
+                         }
+                     } else {
+                         return Err("Expected index value in the stack".into())
+                     }
+                }
                 // Comandos
                 "cite" => {
                     match node.first_child() {
